@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    line-height: 1;
+}
+
+/* Layout */
+
+.viewport {
+    background-color: #360c37;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.sidebar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 180px;
+    min-height: 300px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.648);
+    z-index: 100;
+}
+.bottombar {
+    position: absolute;
+    bottom: 0;
+    min-width: 700px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.648);
+    z-index: 101;
+}
+/* end Layout */
+
+/* Board features */
+.board {
+    /* max visible area is 4000 x 4000 */
+    cursor: move;
+    width: 4000px;
+    height: 4000px;
+    position: relative;
+    background: url(board-bg-fill.png) repeat;
+}
+
+.square {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+}
+
+.square > div {
+    height: 50px;
+    width: 50px;
+}
+
+.tile {
+    background-repeat: no-repeat;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 100;
+}
+
+.tile .letter {
+    white-space: pre-wrap;
+}
+
+.tile .score {
+    position: absolute;
+    color: #352304;
+    font-size: 10px;
+    opacity: 1;
+    right: 8px;
+    text-shadow: rgba(255, 255, 255, 0.199219) 1px 0px 0px;
+    top: 5px;
+}
+
+.board .tile {
+    height: 44px;
+    width: 44px;
+    padding-left: 4px;
+    padding-top: 4px;
+    background-image: url(tiles.png);
+    background-position: 3px 3px;
+}
+
+.board .tile .letter {
+    font-size: 30px;
+    line-height: 44px;
+    margin-right: 3px;
+    text-align: center;
+    text-shadow: rgba(255, 255, 255, 0.246094) 1px 1px 0px;
+}
+/* end Board features */
+
+/* Sidebar features */
+.logo h1 {
+    margin: 0 auto;
+}
+/* end Sidebar features */
+
+/* Bottombar features */
+.rack {
+    height: 70px;
+    margin: 0px auto;
+    padding-top: 21px;
+    position: relative;
+    width: 700px;
+}
+
+.rack .tiles,
+.rack .buttons { position: absolute; top: 21px; }
+
+.rack .tiles { right: 140px; width: 540px; }
+.rack .buttons { right: 0; }
+
+.rack .tile {
+    margin: 0 10px;
+    height: 57px;
+    width: 57px;
+    -webkit-box-shadow: black 0px 0px 13px;
+    background-image: url(tiles.png);
+    background-position: 0px -55px;
+    cursor: move;
+    float: left;
+    padding: 0px;
+    position: relative;
+    z-index: 200;
+}
+
+.rack .tile .letter {
+    color: #271800;
+    font-size: 40px;
+    line-height: 58px;
+    opacity: 1;
+}
+
+.rack .tile-placeholder {
+    width: 57px;
+    height: 57px;
+    float: left;
+}
+
+.rack .buttons > div {
+    background-color: #ffe40e;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    height: 28px;
+    line-height: 28px;
+    overflow: hidden;
+    text-decoration: none;
+    width: 110px;
+
+    color: #332B0A;
+    font-family: helvetica;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: rgba(255, 255, 255, 0.40625) 1px 1px 0px;
+}
+
+.rack .buttons > .disabled {
+    opacity: 0.3;
+    cursor: auto;
+}
+
+.rack .buttons .s--check {
+    background: url(buttons.png) no-repeat -238px -59px;
+    display: inline-block;
+    height: 25px;
+    margin-left: 8px;
+    vertical-align: -1px;
+    width: 26px;
+}
+
+.rack .buttons > .commit {
+    position: absolute;
+    top: 0px;
+    right: 714px;
+    font-size: 30px;
+    height: 44px;
+    line-height: 44px;
+    width: 180px;
+    background-color: #1dcd1d;
+}
+/* end Bottombar features */
