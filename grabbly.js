@@ -249,22 +249,25 @@ board_center_mark.style.cssText = "position: absolute; " + coord.to_css(board.b_
 board.element.appendChild(board_center_mark);
 
 
-$.getJSON("/game/resume", function (d, status, _xhr) {
-    // temp stub
-    d = {
-        position: {X: 16, Y: 6},
-        board: [ [10, 01, 'б', ''], [11, 01, 'л', ''], [12, 01, 'о', ''], [13, 01, 'к', ''], [14, 01, 'а', ''], [15, 01, 'д', ''], [16, 01, 'а', ''],
-                 [10, 02, 'а', ''], [12, 02, 'к', ''], [16, 02, 'з', ''], [17, 02, 'и', ''], [18, 02, 'м', ''], [19, 02, 'а', ''],
-                 [10, 03, 'р', ''], [12, 03, 'о', ''], [13, 03, 'к', ''], [14, 03, 'н', ''], [15, 03, 'о', ''],
-                 [10, 04, 'с', ''], [13, 04, 'а', ''],
-                 [13, 05, 'р', ''], [14, 05, 'а', ''], [15, 05, 'й', '']
-               ],
-        hand: "йхкуяин"
-    };
+// temp stub
+var example_start = {
+    position: {X: 16, Y: 6},
+    board: [ [10, 01, 'б', ''], [11, 01, 'л', ''], [12, 01, 'о', ''], [13, 01, 'к', ''], [14, 01, 'а', ''], [15, 01, 'д', ''], [16, 01, 'а', ''],
+             [10, 02, 'а', ''], [12, 02, 'к', ''], [16, 02, 'з', ''], [17, 02, 'и', ''], [18, 02, 'м', ''], [19, 02, 'а', ''],
+             [10, 03, 'р', ''], [12, 03, 'о', ''], [13, 03, 'к', ''], [14, 03, 'н', ''], [15, 03, 'о', ''],
+             [10, 04, 'с', ''], [13, 04, 'а', ''],
+             [13, 05, 'р', ''], [14, 05, 'а', ''], [15, 05, 'й', '']
+           ],
+    inventory: "йхкуяин",
+    lives: 3,
+    score: 0
+};
 
+
+$.getJSON("/game/start", function (d, status, _xhr) {
     assert(d);
-    board.v_center = d.position;
+    board.v_center = d.position || example_start.position;
     board.look_at_center();
-    board.load_state(d.board);
-    rack.load_state(d.hand);
+    board.load_state(d.board || example_start.board);
+    rack.load_state(d.inventory || example_start.inventory);
 });
