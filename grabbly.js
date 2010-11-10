@@ -8,7 +8,7 @@ function assert(cond, msg) {
         console.error(msg);
         throw msg;
     }
-};
+}
 
 
 // Enable pusher logging - don't include this in production
@@ -53,7 +53,7 @@ function element_to_tile (elem) {
     return {
         letter: letter,
         score: letter_score[letter]
-    }
+    };
 }
 
 var board = {
@@ -219,7 +219,7 @@ $('.board').droppable({
         coord.top += ui.draggable.width() / 2;
         coord.left += ui.draggable.height() / 2;
         return board.drop_tile(coord.left, coord.top, ui.draggable);
-    },
+    }
 });
 $('.board').draggable();
 
@@ -230,7 +230,7 @@ $('.rack .tiles').sortable({
     forcePlaceholderSize: true,
     revert: true,
     revertDuration: 10,
-    scroll: false,
+    scroll: false
 });
 
 $('.rack .buttons .recall').click(function () {
