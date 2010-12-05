@@ -11,22 +11,6 @@ function assert(cond, msg) {
 }
 
 
-// Enable pusher logging - don't include this in production
-Pusher.log = function() {
-    if (window.console) {
-        window.console.log.apply(window.console, arguments);
-    }
-};
-
-// Flash fallback logging - don't include this in production
-WEB_SOCKET_DEBUG = true;
-
-//var pusher = new Pusher('e15691ac43beed2f6f95');
-//pusher.subscribe('testota');
-//pusher.bind('my_event', function(data) {
-//    alert(data);
-//});
-
 var letter_score = {
     'о': 1, 'а': 1, 'е': 1, 'и': 1,
     'н': 2, 'т': 2, 'р': 2, 'с': 2,
