@@ -112,7 +112,8 @@ board.drop_tile = function (x, y, draggable) {
     $('.tile', square_elem).addClass('play').draggable({
         containment: 'body',
         revert: true,
-        revertDuration: 10
+        revertDuration: 10,
+        scroll: false
     });
     rack.update_buttons_status();
 
@@ -205,7 +206,9 @@ $('.board').droppable({
         return board.drop_tile(coord.left, coord.top, ui.draggable);
     }
 });
-$('.board').draggable();
+$('.board').draggable({
+    scroll: false
+});
 
 $('.rack .tiles').sortable({
     items: ".tile",
